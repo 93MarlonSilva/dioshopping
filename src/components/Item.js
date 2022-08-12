@@ -1,14 +1,16 @@
 import React from 'react';
 import { ListItem, ListItemText } from '@material-ui/core/';
+import * as S from './styled-item';
 
 const Item = ({ name, details }) => {
     return(
-        <ListItem>
+        <S.DivCategorias>
+         <ListItem>
             <ListItemText
-                primary={name}
-                secondary={details}
+             primary={`${name}: ${details}`}
             />
-        </ListItem>
+         </ListItem>
+        </S.DivCategorias>
     )
 }
 

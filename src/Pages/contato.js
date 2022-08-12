@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Grid, Button, TextField } from '@material-ui/core/';
+import * as S from "./styled-pages";
 
 const Contatos = () => {
 
@@ -52,42 +53,56 @@ const Contatos = () => {
     }  
 
     return(
-        <>
-            <Grid container direction="row" xs={12}>
-                <TextField id="name" label="Name" value={author} onChange={(event)=>{setAuthor(event.target.value)}} fullWidth/>
-                <TextField id="message" label="Message" value={content} onChange={(event)=>{setContent(event.target.value)}} fullWidth/>
-            </Grid>
+        <div id='contato'>
 
-            {validator && 
-                <div className="alert alert-warning alert-dismissible fade show mt-2" role="alert">
-                    <strong>Por favor preencha todos os campos!</strong>
+            <br/><h2>Envie uma Mensagem</h2><br/>
+            <S.Divcontato>
+              <Grid container direction="row" xs={12}>
+                <S.TextAutor id="name" label="Name" placeholder='Autor' value={author} onChange={(event)=>{setAuthor(event.target.value)}} fullWidth/>
+              </Grid>
+              <br/>
+              <Grid container direction="row" xs={12}>
+                <S.TextMensagem id="message" label="Message" placeholder='Mensagem' value={content} onChange={(event)=>{setContent(event.target.value)}} fullWidth/>
+              </Grid>
+           
+              {validator && 
+                  <div className="alert alert-warning alert-dismissible fade show mt-2" role="alert">
+                    <strong>Preencha todos os campos!</strong>
                     <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            }
+                  </div>
+              }
 
-            {success && 
-                <div className="alert alert-success alert-dismissible fade show mt-2" role="alert">
-                    <strong>Mensagem foi enviada</strong>
-                </div>
-            }
-
-            <Button onClick={sendMessage} className="mt-2" variant="contained" color="primary">
-                Sent
-            </Button>
+              {success && 
+                  <div className="alert alert-success alert-dismissible fade show mt-2" role="alert">
+                    <strong>Mensagem enviada</strong>
+                  </div>
+              }
+              <br/>
+              <S.Button onClick={sendMessage} className="mt-2" variant="contained">
+                Enviar
+              </S.Button>
+            </S.Divcontato>
+            <br/>
+            <br/>
 
             {message.map((content) => {
                 return(
-                    <div className="card mt-2" key={content.id}>
+                    <>
+
+                    <S.Div className="card mt-2" key={content.id}>
                         <div className="card-body">
-                            <h5 className="card-title">{content.email}</h5>
-                            <p className="card-text">{content.message}</p>
-                            <p className="card-text"><small className="text-muted">{content.created_at}</small></p>
+                            <h5 className="card-title">{`Autor: ${content.email}`}</h5>
+                            <p className="card-text">{` Menssagem: ${content.message}`}</p>
+                            <p className="card-text"><small className="text-muted">{`Data: ${content.created_at}`}</small></p>
                         </div>
-                    </div>
+                    </S.Div>
+                    </>
                 )
             } )}
-        </>
+
+        </div>
     )
+    
 }
 
 export default Contatos;

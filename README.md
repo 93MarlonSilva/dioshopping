@@ -1,7 +1,17 @@
 # Getting Started with Create React App
+## Corinthians Shopping
+### Project challenge delivery
+
+
+
+![capa](./public/images/capa.png)
+![capa](./public/images/capa1.png)
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Running the app
 ## Available Scripts
 
 In the project directory, you can run:
