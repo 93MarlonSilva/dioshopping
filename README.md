@@ -4,9 +4,9 @@
 
 
 #
-![capa](./public/images/capa.png)
+![capa](./frontend/public/images/capa.png)
 #
-![capa](./public/images/capa1.png)
+![capa](./frontend/public/images/capa1.png)
 
 
 
